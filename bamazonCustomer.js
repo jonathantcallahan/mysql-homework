@@ -1,4 +1,6 @@
 var mysql = require('mysql');
+var inquirer = require('inquirer');
+
 
 var con = mysql.createConnection({
     host: 'localhost',
@@ -14,3 +16,24 @@ con.connect(function(err){
         console.log(result)
     })
 })
+
+var databaseQuery = {
+    purchaseId: () => {
+        inquirer.prompt([
+            {
+                message: 'What is the id of the product you would like to purchase?',
+                name: 'productId'
+            }
+        ]).then(function(response){
+            var itemId = response.productId;
+            databaseQuery.purchaseQuantity(itemId);
+        }).catch(function(err){
+            console.log(err)
+        });
+    },
+    purchaseQuantity: (id) => {
+        console.log('second inquirer ran')
+    }
+}
+
+databaseQuery.purchaseId()
