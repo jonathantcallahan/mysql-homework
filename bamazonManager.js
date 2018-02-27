@@ -27,10 +27,20 @@ var managerConsole = {
                 name: 'choice'
             }
         ]).then(function(response){
-            let res = response.choices;
+            let res = response.choice;
+            switch(res) {
+                case 'View products for sale':
+                    managerConsole.viewProducts();
+            }
 
         }).catch(function(err){
             if (err) throw err;
+        })
+    },
+    viewProducts: () => {
+        con.query('select * from products', function(err, res, fields){
+            if (err) throw err;
+            console.log(res)
         })
     }
 };
