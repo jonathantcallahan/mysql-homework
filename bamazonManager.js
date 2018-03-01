@@ -104,8 +104,8 @@ Stock: ${res[i].stock_quantity}`)
     },
     addInventoryFunct: (num, item) => {
         console.log('')
-        var query = "update products set stock_quantity = 350 where product_name = 'soccer ball';"
-        con.query(query, function(err, res){
+        var query = "update products set ? where ?;"
+        con.query(query, [{stock_quantity: num},{product_name: item}],function(err, res){
             if(err) throw err;
             console.log(res)
         })
@@ -126,8 +126,9 @@ Stock: ${res[i].stock_quantity}`)
                 name: 'stock'
             }
         ]).then(function(response){
+            console.log(response.name,response.dept,response.cost,response.stock)
             console.log('jeb')
-            var query = 'insert into products (product_name, department_name, price, stock_quantity) values (??,??,??,??);'
+            var query = 'insert into products (product_name, department_name, price, stock_quantity) values (?,?,?,?);'
             con.query(query, [response.name,response.dept,response.cost,response.stock],function(err, res){
                 if(err) throw err;
                 console.log(res)
