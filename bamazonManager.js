@@ -3,6 +3,8 @@ const inquirer = require('inquirer');
 let query;
 require('dotenv').config();
 
+const cTable = require('console.table')
+
 var con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -54,11 +56,7 @@ var managerConsole = {
             console.log('\nHere is the full list of products currently for sale: ')
             for(var i = 0; i <res.length; i++){
                 console.log(`
-Item ID: ${res[i].item_id} 
-Item Name: ${res[i].product_name} 
-Dept: ${res[i].department_name} 
-Price: ${res[i].price} 
-Stock: ${res[i].stock_quantity}`)
+Item ID: ${res[i].item_id}      Item Name: ${res[i].product_name}       Dept: ${res[i].department_name}     Price: ${res[i].price}      Stock: ${res[i].stock_quantity}`)
             }
             con.end()
         })
@@ -68,7 +66,7 @@ Stock: ${res[i].stock_quantity}`)
         con.query(query, function(err, res){
             if(err) throw err;
             res.forEach(element => {
-                console.log(`ID: ${element.item_id} Name: ${element.product_name} Dept: ${element.department_name} Stock: ${element.stock_quantity}`)
+                console.log(`ID: ${element.item_id} Name: ${element.product_name}                   Dept: ${element.department_name} Stock: ${element.stock_quantity}`)
             });
         })
     },

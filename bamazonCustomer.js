@@ -29,7 +29,6 @@ var databaseQuery = {
         });
     },
     purchaseQuantity: (id) => {
-        console.log('second inquirer ran')
         inquirer.prompt([
             {
                 message: 'How many items would you like to purchase?',
