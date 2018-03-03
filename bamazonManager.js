@@ -1,11 +1,12 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 let query;
+require('dotenv').config();
 
 var con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Seamen42.',
+    password: process.env.PASS,
     database: 'bamazon'
 })
 
