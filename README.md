@@ -21,12 +21,16 @@ Below are screenshots of the program running in the console.
 - bamazonManager.js
 - Offers four options to the user
 ![enter image description here](https://i.imgur.com/xsaRYY3.png)
+
 -- View products for sale will display full inventory list
 ![enter image description here](https://i.imgur.com/0HX8aR0.png)
+
 -- View low inventory
 ![enter image description here](https://i.imgur.com/vBCl32Y.png)
+
 -- Add to inventory
 ![enter image description here](https://i.imgur.com/SCLAnaY.png)
 ![enter image description here](https://i.imgur.com/H5trFw1.png)
+
 -- Add new product
 ![enter image description here](https://i.imgur.com/drRGoMb.png)
